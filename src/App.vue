@@ -1,11 +1,9 @@
 <template>
   <div>
-    <li v-for="(item, index) in sampleArray" :key="item">
-      {{ item }} / {{ index }}
-    </li>
-    <li v-for="(user, index) in otherArray" :key="user.id">
-      {{ user.id }} / {{ user.name }} / {{ index }}
-    </li>
+    <!--    <button v-on:click="count++">인라인 핸들러</button>-->
+    <!--    <h1>{{ count }}</h1>-->
+    <button v-on:click="changeName">메서드 핸들러</button>
+    <h1>{{ name }}</h1>
   </div>
 </template>
 
@@ -13,14 +11,14 @@
 export default {
   data() {
     return {
-      sampleArray: ["a,", "b", "c", "d"],
-      otherArray: [
-        { id: 0, name: "John" },
-        { id: 1, name: "Kim" },
-        { id: 2, name: "Lee" },
-        { id: 3, name: "Park" },
-      ],
+      count: 0,
+      name: "Vue.js",
     };
+  },
+  methods: {
+    changeName() {
+      this.name = "변경된 텍스트 데이터 입니다.";
+    },
   },
 };
 </script>
