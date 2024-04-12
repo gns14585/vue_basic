@@ -3,11 +3,15 @@
     <!--    <div v-if="isVisible" class="red"></div>-->
     <!--    <div v-if="isVisible === true" class="blue"></div>-->
     <!--    <div v-else class="black"></div>-->
-    <div v-if="count > 1" class="red"></div>
-    <div v-else class="blue"></div>
+    <!--    <div v-if="count > 1" class="red"></div>-->
+    <!--    <div v-else class="blue"></div>-->
 
-    <button @click="count++">증가</button>
-    <button @click="count--">감소</button>
+    <!--    <button @click="count++">증가</button>-->
+    <!--    <button @click="count&#45;&#45;">감소</button>-->
+
+    <div v-show="isVisible" class="red"></div>
+    <div v-show="!isVisible" class="blue"></div>
+    <div v-if="isVisible" class="black"></div>
   </div>
 </template>
 
@@ -15,7 +19,7 @@
 export default {
   data() {
     return {
-      isVisible: true,
+      isVisible: false,
       count: 0,
     };
   },
