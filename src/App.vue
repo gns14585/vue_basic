@@ -1,17 +1,11 @@
 <template>
   <div>
-    <!--    <div v-if="isVisible" class="red"></div>-->
-    <!--    <div v-if="isVisible === true" class="blue"></div>-->
-    <!--    <div v-else class="black"></div>-->
-    <!--    <div v-if="count > 1" class="red"></div>-->
-    <!--    <div v-else class="blue"></div>-->
-
-    <!--    <button @click="count++">증가</button>-->
-    <!--    <button @click="count&#45;&#45;">감소</button>-->
-
-    <div v-show="isVisible" class="red"></div>
-    <div v-show="!isVisible" class="blue"></div>
-    <div v-if="isVisible" class="black"></div>
+    <li v-for="(item, index) in sampleArray" :key="item">
+      {{ item }} / {{ index }}
+    </li>
+    <li v-for="(user, index) in otherArray" :key="user.id">
+      {{ user.id }} / {{ user.name }} / {{ index }}
+    </li>
   </div>
 </template>
 
@@ -19,27 +13,16 @@
 export default {
   data() {
     return {
-      isVisible: false,
-      count: 0,
+      sampleArray: ["a,", "b", "c", "d"],
+      otherArray: [
+        { id: 0, name: "John" },
+        { id: 1, name: "Kim" },
+        { id: 2, name: "Lee" },
+        { id: 3, name: "Park" },
+      ],
     };
   },
 };
 </script>
 
-<style scoped>
-.red {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-.blue {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-}
-.black {
-  width: 100px;
-  height: 100px;
-  background-color: black;
-}
-</style>
+<style lang="scss" scoped></style>
