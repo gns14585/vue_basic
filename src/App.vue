@@ -1,40 +1,41 @@
 <template>
-  <div>{{ rawHtml }}</div>
-  <div>{{ rawHtml2 }}</div>
-  <h1 v-html="rawHtml2"></h1>
+  <div>
+    <!--    <div v-if="isVisible" class="red"></div>-->
+    <!--    <div v-if="isVisible === true" class="blue"></div>-->
+    <!--    <div v-else class="black"></div>-->
+    <div v-if="count > 1" class="red"></div>
+    <div v-else class="blue"></div>
 
-  <!-- 2개는 동일한 코드 v-bind 코드 생략 가능 -->
-  <h2 v-bind:class="{ active: isActive }">클래스 바인딩 테스트 입니다.</h2>
-  <h2 :class="{ active: isActive }">클래스 바인딩 테스트 입니다.</h2>
-  <button @click="change">버튼</button>
-
-  <h3 style="color: red; font-size: 24px">스타일 바인딩 테스트 입니다.</h3>
-  <h3 :style="{ color: fontColor, fontSize: fontSize + 'px' }">
-    스타일 바인딩 테스트 입니다.
-  </h3>
+    <button @click="count++">증가</button>
+    <button @click="count--">감소</button>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      rawHtml: "이것은 텍스트 입니다.",
-      rawHtml2: "<span style='color: red'>이것은 빨간색 이어야 합니다.</span>",
-      isActive: false,
-      fontColor: "#888888",
-      fontSize: 48,
+      isVisible: true,
+      count: 0,
     };
-  },
-  methods: {
-    change() {
-      this.isActive = !this.isActive;
-    },
   },
 };
 </script>
 
 <style scoped>
-h2.active {
-  color: green;
+.red {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.blue {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+.black {
+  width: 100px;
+  height: 100px;
+  background-color: black;
 }
 </style>
